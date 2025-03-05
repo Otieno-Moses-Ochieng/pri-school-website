@@ -1,0 +1,473 @@
+/* Default CSS for desktop/larger screens */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*header styling */
+header {
+    height: auto;
+    background-color: navy;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+}
+
+/*logo div styling */
+header .logo {
+    flex: 0 0 auto;
+    padding: 10px;
+}
+
+header .logo img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+/*links div styling*/
+header .links {
+    display: flex;
+}
+
+/* Link styling */
+.links a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+/* bar */
+.links .bar {
+    animation-name: bar;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    width: 100%;
+    height: 20px;
+    background-color: magenta;
+}
+
+@keyframes bar {
+    0% { background-color: magenta; }
+    50% { background-color: white; }
+    100% { background-color: red; }
+    0% { background-color: magenta; }
+}
+
+/* Style the dropdown container */
+.homedropdown,
+.aboutdropdown,
+.admissionsdropdown,
+.academicsdropdown,
+.eventsdropdown,
+.resourcesdropdown {
+    display: none;
+    position: absolute;
+    background-color: navy;
+    min-width: 200px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+/* Style the links inside the dropdown */
+.homedropdown .link a,
+.aboutdropdown .link a,
+.admissionsdropdown .link a,
+.academicsdropdown .link a,
+.eventsdropdown .link a,
+.resourcesdropdown .link a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Change background color on hover */
+.homedropdown .link a:hover,
+.aboutdropdown .link a:hover,
+.admissionsdropdown .link a:hover,
+.academicsdropdown .link a:hover,
+.eventsdropdown .link a:hover,
+.resourcesdropdown .link a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: magenta;
+}
+
+/* Style the dropdown sublinks */
+.homedropdown .link,
+.aboutdropdown .link,
+.admissionsdropdown .link,
+.academicsdropdown .link,
+.resourcesdropdown .link,
+.eventsdropdown .link {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Target the dropdown to display when the h1 link is hovered */
+.home:hover .homedropdown,
+.about:hover .aboutdropdown,
+.admissions:hover .admissionsdropdown,
+.academics:hover .academicsdropdown,
+.events:hover .eventsdropdown,
+.resources:hover .resourcesdropdown {
+    display: block;
+}
+
+/* links on hover */
+.home:hover a h1,
+.about:hover a h1,
+.admissions:hover a h1,
+.events:hover a h1,
+.resources:hover a h1,
+.academics:hover a h1 {
+    color: magenta;
+}
+
+/* Ensure dropdowns stay within viewport */
+.homedropdown,
+.aboutdropdown,
+.admissionsdropdown,
+.academicsdropdown,
+.eventsdropdown {
+}
+
+/* Handle dropdowns positioned outside viewport */
+.resourcesdropdown,
+.eventsdropdown,
+.academicsdropdown {
+    right: 20px;
+}
+
+/* Style the dropdown sublinks */
+.homedropdown .link,
+.aboutdropdown .link,
+.admissionsdropdown .link,
+.academicsdropdown .link,
+.eventsdropdown .link,
+.resourcesdropdown .link {
+    display: flex;
+    flex-direction: row; /* Align links horizontally */
+    flex-wrap: wrap; /* Allow links to wrap if they exceed container width */
+    justify-content: flex-start; /* Align links towards the start (left) of the container */
+}
+
+/* Style individual links */
+.homedropdown .link a,
+.aboutdropdown .link a,
+.admissionsdropdown .link a,
+.academicsdropdown .link a,
+.eventsdropdown .link a,
+.resourcesdropdown .link a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 600;
+    padding: 30px;
+    transition: background-color 0.3s ease;
+}
+
+/* Styling the header for various screens */
+/* Media Queries */
+@media only screen and (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .logo img {
+        width: 50px;
+        height: 50px;
+    }
+
+    header .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    .menu-toggle {
+        display: inline-block;
+        cursor: pointer;
+        width: 40px;
+        height: 30px;
+        position: relative;
+    }
+    
+    .menu-toggle .bar1,
+    .menu-toggle .bar2,
+    .menu-toggle .bar3 {
+        width: 100%;
+        height: 5px;
+        background-color: #fff; /* White color for the bars */
+        position: absolute;
+        left: 0;
+        transition: transform 0.3s ease; /* Smooth transition for animation */
+    }
+    
+    .menu-toggle .bar2 {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .menu-toggle .bar3 {
+        bottom: 0;
+    }
+    
+    /* Adjusting the bars for the "change" class to create the X shape */
+    .menu-toggle.change .bar1 {
+        transform: rotate(-45deg) translate(-8px, 6px);
+    }
+    
+    .menu-toggle.change .bar2 {
+        opacity: 0;
+    }
+    
+    .menu-toggle.change .bar3 {
+        transform: rotate(45deg) translate(-8px, -6px);
+    }
+    
+
+    header .links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header .links.active {
+        display: flex;
+    }
+
+    header .links a {
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    header .logo img {
+        width: 60px;
+        height: 60px;
+    }
+
+    header .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    .menu-toggle {
+        display: inline-block;
+        cursor: pointer;
+        width: 40px;
+        height: 30px;
+        position: relative;
+    }
+    
+    .menu-toggle .bar1,
+    .menu-toggle .bar2,
+    .menu-toggle .bar3 {
+        width: 100%;
+        height: 5px;
+        background-color: #fff; /* White color for the bars */
+        position: absolute;
+        left: 0;
+        transition: transform 0.3s ease; /* Smooth transition for animation */
+    }
+    
+    .menu-toggle .bar2 {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .menu-toggle .bar3 {
+        bottom: 0;
+    }
+    
+    /* Adjusting the bars for the "change" class to create the X shape */
+    .menu-toggle.change .bar1 {
+        transform: rotate(-4deg) translate(-8px, 6px);
+    }
+    
+    .menu-toggle.change .bar2 {
+        opacity: 0;
+    }
+    
+    .menu-toggle.change .bar3 {
+        transform: rotate(45deg) translate(-8px, -6px);
+    }
+    
+
+    header .links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header .links.active {
+        display: flex;
+    }
+
+    header .links a {
+        padding: 10px;
+        text-align: left;
+    }
+
+    header .menu-toggle .bar {
+        width: 40px;
+        height: 5px;
+    }
+
+    header .menu-toggle.change .bar1 {
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+
+    header .menu-toggle.change .bar2 {
+        opacity: 0;
+    }
+
+    header .menu-toggle.change .bar3 {
+        transform: rotate(45deg) translate(-8px, -8px);
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    header .logo img {
+        width: 65px;
+        height: 65px;
+    }
+
+    header .links a {
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+    .menu-toggle {
+        display: inline-block;
+        cursor: pointer;
+        width: 40px;
+        height: 30px;
+        position: relative;
+    }
+    
+    .menu-toggle .bar1,
+    .menu-toggle .bar2,
+    .menu-toggle .bar3 {
+        width: 100%;
+        height: 5px;
+        background-color: #fff; /* White color for the bars */
+        position: absolute;
+        left: 0;
+        transition: transform 0.3s ease; /* Smooth transition for animation */
+    }
+    
+    .menu-toggle .bar2 {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .menu-toggle .bar3 {
+        bottom: 0;
+    }
+    
+    /* Adjusting the bars for the "change" class to create the X shape */
+    .menu-toggle.change .bar1 {
+        transform: rotate(-45deg) translate(-8px, 6px);
+    }
+    
+    .menu-toggle.change .bar2 {
+        opacity: 0;
+    }
+    
+    .menu-toggle.change .bar3 {
+        transform: rotate(45deg) translate(-8px, -6px);
+    }
+    
+}
+@media only screen and (max-width: 1040px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .logo img {
+        width: 50px;
+        height: 50px;
+    }
+
+    header .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    .menu-toggle {
+        display: inline-block;
+        cursor: pointer;
+        width: 40px;
+        height: 30px;
+        position: relative;
+    }
+    
+    .menu-toggle .bar1,
+    .menu-toggle .bar2,
+    .menu-toggle .bar3 {
+        width: 100%;
+        height: 5px;
+        background-color: #fff; /* White color for the bars */
+        position: absolute;
+        left: 0;
+        transition: transform 0.3s ease; /* Smooth transition for animation */
+    }
+    
+    .menu-toggle .bar2 {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .menu-toggle .bar3 {
+        bottom: 0;
+    }
+    
+    /* Adjusting the bars for the "change" class to create the X shape */
+    .menu-toggle.change .bar1 {
+        transform: rotate(-45deg) translate(-8px, 6px);
+    }
+    
+    .menu-toggle.change .bar2 {
+        opacity: 0;
+    }
+    
+    .menu-toggle.change .bar3 {
+        transform: rotate(45deg) translate(-8px, -6px);
+    }
+    
+
+    header .links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header .links.active {
+        display: flex;
+    }
+
+    header .links a {
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+    }
+}

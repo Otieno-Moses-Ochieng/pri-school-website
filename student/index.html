@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>karima-pri-school login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="coverpage">
+        <form action="" method="post">
+            <div class="container">
+                <div class="logo">
+                    <h1>STUDENT PORTAL</h1>
+                </div>
+                <div class="inputs-container">
+                    <div class="email">
+                        <input type="email" name="email" placeholder="Enter Your Email.." required autocomplete="off">
+                    </div>
+                    <div class="password">
+                        <input type="password" name="pass" placeholder="Enter Your Password.." required autocomplete="off">
+                    </div>
+                </div>
+                <div class="submit">
+                    <button type="submit" class="submit">UNLOCK</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    const button = document.querySelector('.submit button');
+    const container = document.querySelector('.container');
+    const emailInput = document.querySelector('input[name="email"]');
+    const passInput = document.querySelector('input[name="pass"]');
+    
+    button.addEventListener('click', function(event) {
+        if (emailInput.value === '' || passInput.value === '') {
+            event.preventDefault(); // Prevent form submission if fields are empty
+            container.classList.add('shake'); // Add shake animation class to the container
+        }
+    });
+
+    // Remove shake animation class when input fields are focused
+    emailInput.addEventListener('focus', function() {
+        container.classList.remove('shake');
+    });
+
+    passInput.addEventListener('focus', function() {
+        container.classList.remove('shake');
+    });
+});
+
+
+    </script>
+</body>
+</html>

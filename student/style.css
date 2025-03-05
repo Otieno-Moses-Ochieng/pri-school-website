@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+
+}
+.coverpage {
+
+    width: 400px;
+    height: 600px;
+    
+    background-color: navy;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    margin: 0 auto;
+    border: 1px solid navy;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.coverpage .container {
+    background-image: url("door.jpg");
+    background-size: contain; /* Scale the image to fit within the container */
+    background-position: center; /* Center the image within the container */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    height: 570px;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    transition: transform 0.2s;
+}
+.coverpage .container .logo {
+    text-align: center;
+    background-color: navy;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.coverpage .container .logo h1 {
+    color: #fff;
+    font-size: 40px;
+    padding: 20px;
+}
+.coverpage .container .inputs-container .email, .coverpage .container .inputs-container .password {
+    padding: 40px;
+    text-align: center;
+}
+.coverpage .container .inputs-container input {
+    padding: 10px;
+    border-radius: 10px;
+    color: navy;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.coverpage .submit {
+    text-align: center;
+    padding: 0; /* Remove padding */
+    margin-top: 20px;
+}
+.coverpage .submit button {
+    width: 180px;
+    height: 70px;
+    color: #fff;
+    background-color: navy;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: none; /* Optional: remove default border */
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
